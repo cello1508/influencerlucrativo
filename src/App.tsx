@@ -118,7 +118,8 @@ const VTurbPlayer = () => {
     if (!document.getElementById("vturb-script-69a7bd885a70781128b7568f")) {
       const s = document.createElement("script");
       s.id = "vturb-script-69a7bd885a70781128b7568f";
-      s.src = "https://scripts.converteai.net/4000cfee-6301-49d1-a1d0-07f3a10f1621/players/69a7bd885a70781128b7568f/v4/player.js";
+      // Adicionamos parâmetros para tentar forçar o mute/autoplay via script (depende da lib do VTurb)
+      s.src = "https://scripts.converteai.net/4000cfee-6301-49d1-a1d0-07f3a10f1621/players/69a7bd885a70781128b7568f/v4/player.js?muted=true&autoplay=true";
       s.async = true;
       document.head.appendChild(s);
     }
@@ -128,7 +129,10 @@ const VTurbPlayer = () => {
     <div className="w-full mb-8 relative z-20 rounded-[2rem] overflow-hidden shadow-[0_0_50px_-15px_rgba(16,185,129,0.3)] border border-emerald-900/30">
       {React.createElement('vturb-smartplayer', {
         id: 'vid-69a7bd885a70781128b7568f',
-        style: { display: 'block', margin: '0 auto', width: '100%', maxWidth: '400px' }
+        style: { display: 'block', margin: '0 auto', width: '100%', maxWidth: '400px' },
+        muted: "true",
+        "data-muted": "true",
+        autoplay: "true"
       })}
     </div>
   );
@@ -453,11 +457,11 @@ const SalesPage: React.FC<{ answers: Record<number, string> }> = ({ answers }) =
           </div>
           <div className="flex flex-col gap-4">
             {[
-              "/src/assets/IMG_3505.PNG",
-              "/src/assets/IMG_3506.PNG",
-              "/src/assets/IMG_3507.PNG",
-              "/src/assets/IMG_3508.PNG",
-              "/src/assets/IMG_3509.PNG"
+              "/IMG_3505.PNG",
+              "/IMG_3506.PNG",
+              "/IMG_3507.PNG",
+              "/IMG_3508.PNG",
+              "/IMG_3509.PNG"
             ].map((imgUrl, i) => (
               <div key={i} className="relative bg-zinc-800 rounded-2xl overflow-hidden border border-zinc-700/50 shadow-2xl">
                 <img
@@ -477,9 +481,9 @@ const SalesPage: React.FC<{ answers: Record<number, string> }> = ({ answers }) =
 
           <div className="flex flex-col gap-4 mb-10">
             {[
-              "/src/assets/IMG_5349.jpg",
-              "/src/assets/IMG_5350.jpg",
-              "/src/assets/IMG_5351.jpg"
+              "/IMG_5349.jpg",
+              "/IMG_5350.jpg",
+              "/IMG_5351.jpg"
               // Adicionaremos os próximos 2 prints aqui assim que você enviar
             ].map((imgUrl, i) => (
               <div key={i} className="relative bg-zinc-800 rounded-2xl overflow-hidden border border-zinc-700/50 shadow-2xl">
